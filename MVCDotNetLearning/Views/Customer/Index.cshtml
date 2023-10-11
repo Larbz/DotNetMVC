@@ -1,0 +1,23 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>title</h2>
+
+<h3>@ViewBag.Message</h3>
+<p>There are @ViewBag.CustomerCount customers added into the list.</p>
+<ul>
+    @foreach (var customer in ViewBag.CustomerList)
+    {
+        <li>@customer.Id - @customer.Name - @customer.Amount</li>
+    }
+</ul>
+
+<hr/>
+
+@Html.ActionLink("Details Page","Details","Customer");
+<br/>
+<a asp-controller="Customer" asp-action="Message">Message</a>
